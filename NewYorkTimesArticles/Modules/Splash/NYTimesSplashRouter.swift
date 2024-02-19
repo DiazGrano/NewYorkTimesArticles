@@ -24,10 +24,6 @@ class NYTimesSplashRouter {
     func setNavigation(_ navigation: UINavigationController) {
         self.navigation = navigation
     }
-    
-    private func push(_ viewController: UIViewController, _ animated: Bool = true) {
-        navigation?.pushViewController(viewController, animated: animated)
-    }
 }
 
 extension NYTimesSplashRouter: NYTimesSplashRouterProtocol {

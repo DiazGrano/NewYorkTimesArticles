@@ -11,6 +11,7 @@ class NYTimesSplashPresenter {
     private weak var view: NYTimesSplashViewControllerProtocol?
     private let interactor: NYTimesSplashInteractorProtocol
     private let router: NYTimesSplashRouterProtocol
+    private var localArticles: NYTimesArticlesResponse?
     
     init(interactor: NYTimesSplashInteractorProtocol, router: NYTimesSplashRouterProtocol) {
         self.interactor = interactor
@@ -24,15 +25,13 @@ class NYTimesSplashPresenter {
 
 extension NYTimesSplashPresenter: NYTimesSplashPresenterProtocol {
     func requestArticles() {
-        DispatchQueue.main.async {
-            self.interactor.getArticles()
-        }
+        self.interactor.getArticles()
     }
     
     func responseArticles(data: NYTimesArticlesResponse) {
         DispatchQueue.main.async {
             guard let articles = data.results, articles.count > 0 else {
-                self.view?.notifyError(data: NYTimesErrorModel.getDefaultError(type: .unknown))
+                self.view?.notifyError(data: NYTimesErrorModel.getDefaultError(type: .unknown), localArticlesExists: false)
                 return
             }
             
@@ -41,9 +40,21 @@ extension NYTimesSplashPresenter: NYTimesSplashPresenterProtocol {
         }
     }
     
-    func responseError(data: NYTimesErrorModel) {
+    func responseError(data: NYTimesErrorModel, localArticles: NYTimesArticlesResponse?) {
         DispatchQueue.main.async {
-            self.view?.notifyError(data: data)
+            self.localArticles = localArticles
+            self.view?.notifyError(data: data, localArticlesExists: localArticles != nil)
+        }
+    }
+    
+    func requestHomeWithLocalArticles() {
+        DispatchQueue.main.async {
+            guard let articles = self.localArticles?.results, articles.count > 0 else {
+                self.view?.notifyError(data: NYTimesErrorModel.getDefaultError(type: .unknown), localArticlesExists: false)
+                return
+            }
+            
+            self.router.navigateToHome(articles: articles)
         }
     }
 }

@@ -52,7 +52,12 @@ class NYTimesNetworkManager {
                     return
                 }
                 
-                failure(NYTimesErrorModel(code: "\(nsError.code)", message: nsError.localizedDescription))
+                guard let urlError = nsError as? URLError, urlError.code == URLError.Code.notConnectedToInternet else {
+                    failure(NYTimesErrorModel(code: "\(nsError.code)", message: nsError.localizedDescription))
+                    return
+                }
+                
+                failure(NYTimesErrorModel.getDefaultError(type: .noInternet))
                 return
             }
             

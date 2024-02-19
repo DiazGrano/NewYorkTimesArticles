@@ -17,7 +17,7 @@ protocol NYTimesArticleDetailsInteractorProtocol: AnyObject {
 
 protocol NYTimesArticleDetailsPresenterProtocol: AnyObject {
     func requestArticleImage()
-    func responseArticleImage(base64: String?)
+    func responseArticleImage(image: UIImage?)
     func requestArticleData() -> NYTimesArticle
 }
 

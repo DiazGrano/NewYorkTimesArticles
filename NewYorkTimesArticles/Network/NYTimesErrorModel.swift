@@ -88,6 +88,6 @@ struct NYTimesErrorModel {
     }
     
     func getFormattedMessage() -> String {
-        return "Network.message.error".localizedFill(code, message)
+        return "Network.message.error".localizedFill(message, code)
     }
 }

@@ -15,14 +15,16 @@ class NYTimesArticleDetailsRouter {
     }
     
     public func start(article: NYTimesArticle) {
-        let interactor = NYTimesArticleDetailsInteractor()
-        let presenter = NYTimesArticleDetailsPresenter(interactor: interactor, router: self, article: article)
-        let view = NYTimesArticleDetailsViewController(presenter: presenter)
-        
-        presenter.setView(view)
-        interactor.setPresenter(presenter)
-        
-        present(view)
+        DispatchQueue.main.async {
+            let interactor = NYTimesArticleDetailsInteractor()
+            let presenter = NYTimesArticleDetailsPresenter(interactor: interactor, router: self, article: article)
+            let view = NYTimesArticleDetailsViewController(presenter: presenter)
+            
+            presenter.setView(view)
+            interactor.setPresenter(presenter)
+            
+            self.present(view)
+        }
     }
     
     private func push(_ viewController: UIViewController, _ animated: Bool = true) {

@@ -32,15 +32,13 @@ extension NYTimesArticleDetailsPresenter: NYTimesArticleDetailsPresenterProtocol
         interactor.getArticleImage(url: nonNilURL)
     }
     
-    func responseArticleImage(base64: String?) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            guard let nonNilBase64 = base64, let nonNilData = Data(base64Encoded: nonNilBase64), let nonNilImage = UIImage(data: nonNilData) else {
+    func responseArticleImage(image: UIImage?) {
+        DispatchQueue.main.async {
+            guard let image else {
                 return
             }
             
-            DispatchQueue.main.async {
-                self.view?.notifyArticleImage(image: nonNilImage)
-            }
+            self.view?.notifyArticleImage(image: image)
         }
     }
     

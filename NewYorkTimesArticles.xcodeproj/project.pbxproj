@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3782FDFB360FEE6E75D42C3F /* Pods_NewYorkTimesArticles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3E6E5793673C8AE6D533BE /* Pods_NewYorkTimesArticles.framework */; };
 		BC1DA6B31E337ED2D94F1009 /* Pods_NewYorkTimesArticles_NewYorkTimesArticlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB9AFDDC6FA96A50F85FBAC /* Pods_NewYorkTimesArticles_NewYorkTimesArticlesUITests.framework */; };
+		DF7835412B82C36F00FE03F1 /* ImageItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78353F2B82C36F00FE03F1 /* ImageItem+CoreDataProperties.swift */; };
+		DF7835422B82C36F00FE03F1 /* ImageItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7835402B82C36F00FE03F1 /* ImageItem+CoreDataClass.swift */; };
+		DF7835452B82C40700FE03F1 /* NYTimesCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7835442B82C40700FE03F1 /* NYTimesCoreDataHelper.swift */; };
+		DF7835472B82D23700FE03F1 /* NYTimesImagesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7835462B82D23700FE03F1 /* NYTimesImagesHelper.swift */; };
 		DF9C8F9C2B81571E003AD8EB /* NYTimesHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9C8F962B81571E003AD8EB /* NYTimesHomePresenter.swift */; };
 		DF9C8F9D2B81571E003AD8EB /* NYTimesHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9C8F972B81571E003AD8EB /* NYTimesHomeRouter.swift */; };
 		DF9C8F9E2B81571E003AD8EB /* NYTimesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9C8F982B81571E003AD8EB /* NYTimesHomeViewController.swift */; };
@@ -77,6 +81,12 @@
 		8A3E6E5793673C8AE6D533BE /* Pods_NewYorkTimesArticles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewYorkTimesArticles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C5483B136D5507C15FEFFA /* Pods-NewYorkTimesArticles-NewYorkTimesArticlesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewYorkTimesArticles-NewYorkTimesArticlesUITests.debug.xcconfig"; path = "Target Support Files/Pods-NewYorkTimesArticles-NewYorkTimesArticlesUITests/Pods-NewYorkTimesArticles-NewYorkTimesArticlesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADB9AFDDC6FA96A50F85FBAC /* Pods_NewYorkTimesArticles_NewYorkTimesArticlesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewYorkTimesArticles_NewYorkTimesArticlesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF78353F2B82C36F00FE03F1 /* ImageItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DF7835402B82C36F00FE03F1 /* ImageItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DF7835442B82C40700FE03F1 /* NYTimesCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesCoreDataHelper.swift; sourceTree = "<group>"; };
+		DF7835462B82D23700FE03F1 /* NYTimesImagesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesImagesHelper.swift; sourceTree = "<group>"; };
+		DF78354B2B82DBD600FE03F1 /* NYTimesArticleItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NYTimesArticleItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DF78354C2B82DBD600FE03F1 /* NYTimesArticleItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NYTimesArticleItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DF9C8F962B81571E003AD8EB /* NYTimesHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesHomePresenter.swift; sourceTree = "<group>"; };
 		DF9C8F972B81571E003AD8EB /* NYTimesHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesHomeRouter.swift; sourceTree = "<group>"; };
 		DF9C8F982B81571E003AD8EB /* NYTimesHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesHomeViewController.swift; sourceTree = "<group>"; };
@@ -218,8 +228,10 @@
 		DF3312542B7FE15E002E3934 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DF7835432B82C3A100FE03F1 /* CoreData */,
 				DFFB0D7F2B8002D7003E3C7A /* NYTimesConstants.swift */,
 				DFFB0D812B80048A003E3C7A /* NYTimesViewController.swift */,
+				DF7835462B82D23700FE03F1 /* NYTimesImagesHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -260,6 +272,34 @@
 				DF9C8FA72B81860E003AD8EB /* NYTimesURLsHelper.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		DF78353E2B82C36000FE03F1 /* ImageItem */ = {
+			isa = PBXGroup;
+			children = (
+				DF7835402B82C36F00FE03F1 /* ImageItem+CoreDataClass.swift */,
+				DF78353F2B82C36F00FE03F1 /* ImageItem+CoreDataProperties.swift */,
+			);
+			path = ImageItem;
+			sourceTree = "<group>";
+		};
+		DF7835432B82C3A100FE03F1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DF7835442B82C40700FE03F1 /* NYTimesCoreDataHelper.swift */,
+				DF78354A2B82DB6300FE03F1 /* ArticlesItem */,
+				DF78353E2B82C36000FE03F1 /* ImageItem */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DF78354A2B82DB6300FE03F1 /* ArticlesItem */ = {
+			isa = PBXGroup;
+			children = (
+				DF78354B2B82DBD600FE03F1 /* NYTimesArticleItem+CoreDataClass.swift */,
+				DF78354C2B82DBD600FE03F1 /* NYTimesArticleItem+CoreDataProperties.swift */,
+			);
+			path = ArticlesItem;
 			sourceTree = "<group>";
 		};
 		DF7D3E472B7FF939005AC185 /* Splash */ = {
@@ -613,15 +653,19 @@
 				DF9C8F9C2B81571E003AD8EB /* NYTimesHomePresenter.swift in Sources */,
 				DFCF79D02B8009A400DE0BF4 /* NYTimesNetworkManager.swift in Sources */,
 				DFFB0D6D2B7FF9C2003E3C7A /* NYTimesSplashRouter.swift in Sources */,
+				DF7835412B82C36F00FE03F1 /* ImageItem+CoreDataProperties.swift in Sources */,
 				DF9C8FA42B816C97003AD8EB /* NYTimesArticleViewCell.swift in Sources */,
 				DF9C8FB12B819082003AD8EB /* NYTimesArticleDetailsRouter.swift in Sources */,
 				DFFB0D772B80001B003E3C7A /* UIFont+Extensions.swift in Sources */,
 				DF9C8FB02B819082003AD8EB /* NYTimesArticleDetailsPresenter.swift in Sources */,
 				DF9C8FB52B819082003AD8EB /* NYTimesArticleDetailsEntity.swift in Sources */,
 				DFFB0D842B8004C8003E3C7A /* UIApplication+Extension.swift in Sources */,
+				DF7835452B82C40700FE03F1 /* NYTimesCoreDataHelper.swift in Sources */,
 				DFFB0D752B7FFD31003E3C7A /* UIColor+Extensions.swift in Sources */,
 				DFFB0D8B2B8007BD003E3C7A /* String+Extensions.swift in Sources */,
+				DF7835422B82C36F00FE03F1 /* ImageItem+CoreDataClass.swift in Sources */,
 				DFFB0D7B2B8001A6003E3C7A /* Bundle+Extensions.swift in Sources */,
+				DF7835472B82D23700FE03F1 /* NYTimesImagesHelper.swift in Sources */,
 				DF9C8FB22B819082003AD8EB /* NYTimesArticleDetailsViewController.swift in Sources */,
 				DF9C8F9D2B81571E003AD8EB /* NYTimesHomeRouter.swift in Sources */,
 				DF9C8FB42B819082003AD8EB /* NYTimesArticleDetailsInteractor.swift in Sources */,
@@ -811,7 +855,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Q6ZD36XL6;
+				DEVELOPMENT_TEAM = DX65CAV54R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewYorkTimesArticles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -843,7 +887,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Q6ZD36XL6;
+				DEVELOPMENT_TEAM = DX65CAV54R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewYorkTimesArticles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

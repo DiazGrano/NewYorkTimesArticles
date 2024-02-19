@@ -9,7 +9,6 @@ import Foundation
 
 enum APIBasePath: String {
     case nyTimes = "https://api.nytimes.com/"
-    case google = "https://www.google.com.mx/"
 }
 
 enum Endpoint: String {

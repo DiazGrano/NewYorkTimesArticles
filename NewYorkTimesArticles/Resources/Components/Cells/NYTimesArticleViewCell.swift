@@ -22,7 +22,7 @@ class NYTimesArticleViewCell: UITableViewCell {
     lazy var mainContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = .nyTimesWhite
         return view
     }()
     
@@ -36,7 +36,7 @@ class NYTimesArticleViewCell: UITableViewCell {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
-        imageView.image = UIImage(systemName: "photo")
+        imageView.image = UIImage(systemName: NYTimesConstants.images.defaultPhoto)
         imageView.tintColor = .nyTimesBlack
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
@@ -139,7 +139,15 @@ extension NYTimesArticleViewCell {
         articleData = article
         articleTitleLabel.text = article.title
         articlePublisedDateLabel.text = article.publishedDate?.toStringDateWithFormat()
-        // TODO: Load article image and save it or retrieve it from local if exists logic
+        if let url = article.getArticleImageURL(format: .small) {
+            NYTimesImagesHelper.shared.getImage(url: url) { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.articleImage.image = image
+                }
+            }
+        } else {
+            articleImage.image = UIImage(systemName: NYTimesConstants.images.defaultPhoto)
+        }
         animateAppearing()
     }
     
