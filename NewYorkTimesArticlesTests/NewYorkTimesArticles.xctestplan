@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "FD83E78E-31A4-4256-9DBF-8D3D64B963CF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:NewYorkTimesArticles.xcodeproj",
+      "identifier" : "DFDB7D712B7FDD7E006D2F90",
+      "name" : "NewYorkTimesArticles"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NewYorkTimesArticles.xcodeproj",
+        "identifier" : "DFDB7D8A2B7FDD7F006D2F90",
+        "name" : "NewYorkTimesArticlesTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NewYorkTimesArticles.xcodeproj",
+        "identifier" : "DFDB7D942B7FDD7F006D2F90",
+        "name" : "NewYorkTimesArticlesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -9,7 +9,8 @@ import Foundation
 
 class NYTimesSplashInteractor {
     private weak var presenter: NYTimesSplashPresenterProtocol?
-    private let networkManager = NYTimesNetworkManager()
+    var networkManager = NYTimesNetworkManager()
+    var coreDataHelper = NYTimesCoreDataHelper()
     
     func setPresenter(_ presenter: NYTimesSplashPresenterProtocol) {
         self.presenter = presenter
@@ -17,7 +18,7 @@ class NYTimesSplashInteractor {
     
     func saveArticlesToLocal(modelResponse: NYTimesArticlesResponse){
         DispatchQueue.main.async {
-            NYTimesCoreDataHelper.shared.saveArticles(model: modelResponse) { [weak self] in
+            self.coreDataHelper.saveArticles(model: modelResponse) { [weak self] in
                 self?.presenter?.responseArticles(data: modelResponse)
             }
         }
@@ -25,7 +26,7 @@ class NYTimesSplashInteractor {
     
     func searchForLocalArticles(errorResponse: NYTimesErrorModel) {
         DispatchQueue.main.async {
-            NYTimesCoreDataHelper.shared.getArticles { [weak self] articlesResponse in
+            self.coreDataHelper.getArticles { [weak self] articlesResponse in
                 self?.presenter?.responseError(data: errorResponse, localArticles: articlesResponse)
             }
         }

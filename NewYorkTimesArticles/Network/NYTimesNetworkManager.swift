@@ -68,6 +68,7 @@ class NYTimesNetworkManager {
                 return
             }
             
+            URLCache.shared.removeAllCachedResponses()
             success(notNilResponseData)
         }.resume()
     }

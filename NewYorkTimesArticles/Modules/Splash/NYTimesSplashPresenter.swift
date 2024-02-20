@@ -11,7 +11,7 @@ class NYTimesSplashPresenter {
     private weak var view: NYTimesSplashViewControllerProtocol?
     private let interactor: NYTimesSplashInteractorProtocol
     private let router: NYTimesSplashRouterProtocol
-    private var localArticles: NYTimesArticlesResponse?
+    var localArticles: NYTimesArticlesResponse?
     
     init(interactor: NYTimesSplashInteractorProtocol, router: NYTimesSplashRouterProtocol) {
         self.interactor = interactor

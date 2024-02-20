@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  NewYorkTimesArticles
+
+  Created by Luis Enrique Diaz Grano on 16/02/24.
+  
+*/
+"Splash.message.loading" = "Loading articles from New York Times";
+
+"Network.message.error" = "%@\n\nError code: %@";
+"Network.message.unknown" = "Unknown error, please try again later.";
+"Network.message.badURL" = "Invalid URL, please try again later.";
+"Network.message.badResponseBody" = "Response body invalid, please try again later.";
+"Network.message.badRequestBody" = "Request body invalid, please try again later.";
+"Network.message.noInternet" = "There is no internet connection, please try again later.";
+
+"Alerts.title" = "Error";
+"Alerts.action.retry" = "Retry";
+"Alerts.action.useLocalArticles" = "View downloaded articles";
+
+"Home.message.mostViewed" = "Most viewed articles of the week";
+
+"ArticleDetails.message.articleUpdatedDate" = "%@ (updated %@)";
+"ArticleDetails.message.fullSection" = "%@/ %@";
+"ArticleDetails.message.publisher" = "Source: %@";

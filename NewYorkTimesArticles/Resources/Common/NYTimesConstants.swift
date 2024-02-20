@@ -23,14 +23,10 @@ enum NYTimesConstants {
     }
 
     enum ErrorCodes {
-        static let unknown = "-64701"
-        static let badURL = "-64702"
-        static let badResponseBody = "-64703"
-        static let badRequestBody = "-64704"
-        static let noInternet = "-64705"
-        static let biometric = "-64706"
-        static let whatsapp = "-64707"
-        static let login = "-64708"
-        static let register = "-64709"
+        static let unknown = "-000001"
+        static let badURL = "-000002"
+        static let badResponseBody = "-000003"
+        static let badRequestBody = "-000004"
+        static let noInternet = "-000005"
     }
 }

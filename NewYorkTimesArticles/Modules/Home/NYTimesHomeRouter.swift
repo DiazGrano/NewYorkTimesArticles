@@ -8,7 +8,7 @@
 import UIKit
 
 class NYTimesHomeRouter {
-    private let navigation: UINavigationController
+    private(set) var navigation: UINavigationController
     
     public init(navigation: UINavigationController) {
         self.navigation = navigation

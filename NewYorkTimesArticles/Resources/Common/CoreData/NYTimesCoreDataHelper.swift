@@ -9,10 +9,9 @@ import UIKit
 import CoreData
 
 class NYTimesCoreDataHelper {
-    static let shared = NYTimesCoreDataHelper()
     private var context: NSManagedObjectContext?
     
-    private init() {
+    init() {
         DispatchQueue.main.async {
             self.context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         }
@@ -47,6 +46,7 @@ class NYTimesCoreDataHelper {
     func getArticles(completion: @escaping ((NYTimesArticlesResponse?) -> ()))  {
         DispatchQueue.main.async {
             guard let articlesItem = try? self.context?.fetch(NYTimesArticleItem.fetchRequest()).first, let articlesResult = articlesItem.results else {
+                completion(nil)
                 return
             }
             

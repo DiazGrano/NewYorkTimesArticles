@@ -8,7 +8,7 @@
 import UIKit
 
 class NYTimesArticleDetailsRouter {
-    private let navigation: UINavigationController
+    private(set) var navigation: UINavigationController
     
     public init(navigation: UINavigationController) {
         self.navigation = navigation
@@ -25,10 +25,6 @@ class NYTimesArticleDetailsRouter {
             
             self.present(view)
         }
-    }
-    
-    private func push(_ viewController: UIViewController, _ animated: Bool = true) {
-        navigation.pushViewController(viewController, animated: animated)
     }
     
     private func present(_ viewController: UIViewController, _ animated: Bool = true) {

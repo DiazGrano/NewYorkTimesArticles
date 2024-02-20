@@ -24,8 +24,8 @@ class NYTimesSplashViewController: NYTimesViewController {
         view.backgroundColor = .nyTimesWhite
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadArticles()
     }
     

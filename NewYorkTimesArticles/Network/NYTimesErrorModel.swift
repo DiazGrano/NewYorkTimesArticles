@@ -64,15 +64,6 @@ struct NYTimesErrorModel {
         self.defaultErrorType = nil
     }
     
-    init(code: String = NYTimesDefaultErrorType.unknown.getCode(),
-         title: String = NYTimesDefaultErrorType.unknown.getTitle(),
-         message: String? = NYTimesDefaultErrorType.unknown.getMessage()) {
-        self.code = code
-        self.title = title
-        self.message = message ?? NYTimesDefaultErrorType.unknown.getMessage()
-        self.defaultErrorType = nil
-    }
-    
     init(code: String,
          title: String,
          message: String,

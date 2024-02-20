@@ -8,7 +8,7 @@
 import UIKit
 
 class NYTimesSplashRouter {
-    private var navigation: UINavigationController?
+    private(set) var navigation: UINavigationController?
     
     public func start() -> UIViewController {
         let interactor = NYTimesSplashInteractor()

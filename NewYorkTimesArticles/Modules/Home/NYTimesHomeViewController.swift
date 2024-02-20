@@ -71,7 +71,7 @@ class NYTimesHomeViewController: NYTimesViewController {
 
 extension NYTimesHomeViewController {
     func initComponents() {
-        view.backgroundColor = .white
+        view.backgroundColor = .nyTimesWhite
         setSubviews()
         setAutolayout()
     }

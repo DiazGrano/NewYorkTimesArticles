@@ -9,6 +9,7 @@ import UIKit
 
 class NYTimesImagesHelper {
     static let shared = NYTimesImagesHelper()
+    var coreDataHelper = NYTimesCoreDataHelper()
     
     func getImage(url: String, completion: @escaping ((UIImage?) -> ())) {
         getBase64Image(url: url) { base64Image in
@@ -23,8 +24,8 @@ class NYTimesImagesHelper {
         }
     }
     
-    func getBase64Image(url: String, completion: @escaping ((String?) -> ())) {
-        NYTimesCoreDataHelper.shared.getBase64ImageByURL(url: url) { [weak self] localBase64Image in
+    private func getBase64Image(url: String, completion: @escaping ((String?) -> ())) {
+        coreDataHelper.getBase64ImageByURL(url: url) { [weak self] localBase64Image in
             guard let localBase64Image else {
                 self?.downloadBase64Image(url: url, completion: completion)
                 return
@@ -49,7 +50,7 @@ class NYTimesImagesHelper {
             
             let base64Image = nonNilData.base64EncodedString()
             
-            NYTimesCoreDataHelper.shared.saveBase64ImageByURL(url: url, image: base64Image) {
+            self.coreDataHelper.saveBase64ImageByURL(url: url, image: base64Image) {
                 completion(base64Image)
             }
         }

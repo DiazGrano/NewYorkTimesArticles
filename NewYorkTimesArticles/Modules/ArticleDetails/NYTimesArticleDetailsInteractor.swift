@@ -8,7 +8,7 @@
 import Foundation
 
 class NYTimesArticleDetailsInteractor {
-    private weak var presenter: NYTimesArticleDetailsPresenterProtocol?
+    private(set) weak var presenter: NYTimesArticleDetailsPresenterProtocol?
     
     func setPresenter(_ presenter: NYTimesArticleDetailsPresenterProtocol) {
         self.presenter = presenter

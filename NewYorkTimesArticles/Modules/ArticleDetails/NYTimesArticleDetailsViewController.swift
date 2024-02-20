@@ -47,7 +47,7 @@ class NYTimesArticleDetailsViewController: NYTimesViewController {
         return label
     }()
     
-    private lazy var articleImageView: UIImageView = {
+    lazy var articleImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill

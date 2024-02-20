@@ -20,7 +20,7 @@ open class NYTimesViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    private func isShowingLoader() -> Bool {
+    func isShowingLoader() -> Bool {
         guard let keyWindow = UIApplication.getKeyWindow() else {
             return false
         }
